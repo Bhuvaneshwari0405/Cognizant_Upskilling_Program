@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#search">Search</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <h1>Welcome to the Community Portal</h1>
+    <p>Stay informed. Get involved.</p>
+  </header>
+
+  <!-- Spinner for Loading -->
+  <div id="loading" class="spinner">Loading events...</div>
+
+  <!-- Event List Section -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+
+    <label for="categoryFilter">Filter by category:</label>
+    <select id="categoryFilter">
+      <option value="">-- Select Category --</option>
+      <option value="music">Music</option>
+      <option value="art">Art</option>
+      <option value="education">Education</option>
+    </select>
+
+    <div id="eventList" class="event-grid"></div>
+  </section>
+
+  <!-- Registration Form -->
+  <section id="register">
+    <h2>Register for an Event</h2>
+
+    <form id="registerForm">
+      <label>
+        Name:
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" required />
+      </label>
+      <label>
+        Event:
+        <select name="event" required>
+          <option value="">-- Choose an event --</option>
+          <option value="Music Night">Music Night</option>
+          <option value="Art Workshop">Art Workshop</option>
+          <option value="Book Fair">Book Fair</option>
+        </select>
+      </label>
+      <button type="submit" id="registerBtn">Register</button>
+      <p id="formError" class="error"></p>
+      <p id="formMessage" class="success"></p>
+    </form>
+  </section>
+
+  <!-- Search -->
+  <section id="search">
+    <h2>Quick Search</h2>
+    <input type="text" id="searchInput" placeholder="Search events..." />
+  </section>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
