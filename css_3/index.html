@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Community Event Portal</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Internal CSS (for learning/demo purposes only) -->
+  <style>
+    body {
+      background-color: #f9f9f9;
+    }
+    #inlineExample {
+      color: red; /* Inline style demo target */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" >Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Banner -->
+  <header id="mainHeader">
+    <h1 id="inlineExample">Welcome to the Community Event Portal</h1>
+    <p class="highlight">Connect. Participate. Celebrate!</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Image Gallery -->
+    <section id="gallery">
+      <h2>Past Events</h2>
+      <table>
+        <caption>Community Moments</caption>
+        <tr>
+          <td><img src="assets/images/event1.jpg" alt="Event 1" class="event-img" /></td>
+          <td><img src="assets/images/event4.jpg" alt="Event 2" class="event-img" /></td>
+          <td><img src="assets/images/event6.jpg" alt="Event 3" class="event-img" /></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="events">
+      <h2>Register Now</h2>
+      <form onsubmit="handleForm(event)">
+        <label>Name: <input type="text" placeholder="Full name" required /></label>
+        <label>Email: <input type="email" placeholder="you@example.com" required /></label>
+        <label>Date: <input type="date" required /></label>
+        <label>Event Type:
+          <select id="eventType" onchange="savePreference(this)">
+            <option value="">--Select--</option>
+            <option value="music">Music</option>
+            <option value="art">Art</option>
+          </select>
+        </label>
+        <label>Message:
+          <textarea placeholder="Your message..."></textarea>
+        </label>
+        <label>Phone: <input type="tel" id="phone" onblur="validatePhone()" /></label>
+
+        <p id="feeDisplay"></p>
+        <button type="submit" class="cta-button">Register</button>
+        <output id="confirmation"></output>
+      </form>
+    </section>
+    <!-- Multi-column News Section -->
+    <section class="news">
+      <h2>Community Bulletin</h2>
+      <div class="news-columns">
+        <p>Join your neighbors in celebrating our local culture with events for all ages.</p>
+<p>Stay informed about upcoming activities, city updates, and ways to get involved in your community.</p>
+
+      </div>
+    </section>
+     <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out anytime: <a href="mailto:bhuavanachinnaduri@gmail.com">bhuavanachinnaduri@gmail.com</a></p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Local City Council. All rights reserved.
+  </footer>
+
+  <script>
+    function handleForm(e) {
+      e.preventDefault();
+      document.getElementById('confirmation').textContent = "Thanks for registering!";
+    }
+
+    function validatePhone() {
+      const phone = document.getElementById('phone').value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Enter a valid 10-digit phone number.");
+      }
+    }
+
+    function savePreference(select) {
+      localStorage.setItem("preferredEvent", select.value);
+    }
+
+    window.onload = function () {
+      const saved = localStorage.getItem("preferredEvent");
+      if (saved) {
+        document.getElementById("eventType").value = saved;
+      }
+    };
+  </script>
+
+</body>
+</html>
