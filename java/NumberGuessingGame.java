@@ -25,7 +25,7 @@ public class NumberGuessingGame {
             } else if (guess > secretNumber) {
                 System.out.println("Too high! Try again.");
             } else {
-                System.out.println("🎉 Congratulations! You guessed the number in " + attempts + " attempts.");
+                System.out.println(" Congratulations! You guessed the number in " + attempts + " attempts.");
             }
         }
     
